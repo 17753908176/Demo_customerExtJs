@@ -62,6 +62,9 @@ Ext.define("demo.view.mainLayout",{
             html:'&copy;版权所有',
             region:'south'
         }
-    ]
+    ],
+    initComponent:function () {
+        this.callParent();
+    }
 
 });

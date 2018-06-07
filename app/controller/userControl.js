@@ -4,69 +4,11 @@
 /**
  * Created by Couputer on 2016/7/21.
  */
-Ext.define('demo.controller.userList',{
+Ext.define('demo.controller.userControl',{
     extend:'Ext.app.Controller',
     views:['myFunction.userList','myFunction.userForm'],
-    stores:[],//'gridStore'
-    //'mainsuperandon.model.gridModel'
-    models:[],
     init:function () {
         this.control({
-
-            //修改用户的清空和退出按钮
-            'userwinmodiefy  button[action=exit]':{
-                click:function(btn) {
-                    btn.up('userwinmodiefy').close();
-                }
-            },
-
-            'userwinmodiefy  button[action=clear]':{
-                click:function (btn) {
-                    btn.up('userwinmodiefy').down('userform').getForm().reset();
-                }
-            },
-            //修改表单的修改按钮
-            'userwinmodiefy button[action=modiefy]':{
-
-                click:function (btn) {
-                    //取到每个字段的id
-
-
-
-                    var form=btn.up('userwinmodiefy').down('userform');
-                    //获取表单字段
-                    var values=form.getForm().getValues();
-                    var username= values['username'];
-                    var account=values['account'];
-                    var password=values['password'];
-
-                    //alert(111);
-                    //获取数据向后台请求
-                    Ext.Ajax.request({
-                        method:"POST",
-                        url: $.baseUrl()+'updateTUser',
-                        params:{
-                            account:account,
-                            password: password,
-                            username: username
-                        },
-                        success: function(response,options){
-                            var resp = Ext.JSON.decode(response.responseText);
-                            if(resp!=null){
-                                Ext.MessageBox.alert('修改','修改成功');
-                            }else {
-                                Ext.MessageBox.alert('修改',resp.failReason);
-                            }
-                        },
-                        failure: function(){
-                            Ext.MessageBox.alert('状态','修改失败');
-                        }
-                    });
-                    //若成功修改天刷新store重新显示数据
-
-
-                }
-            },
             //新增表单的新增按钮
             'userForm button[action=add]':{
                 click:function (btn) {

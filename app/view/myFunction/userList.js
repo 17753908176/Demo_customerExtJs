@@ -29,20 +29,13 @@ Ext.define("demo.view.myFunction.userList",{
             store: new Ext.data.Store({
                 storeId:'simpsonsStore',
                 fields:['orderId', 'name','sex','phone','address','age','date','production','price'],
-                data:{'items':[
+                data:[
                     { 'orderId': '0001',  "name":"周婷婷", "sex":'男', "phone":"18888888888",'address':'山东临沂','age':'21','date':'2018-02-02','production':'舒尔佳','price':'180RMB'},
                     { 'orderId': '0001',  "name":"周婷婷", "sex":'男',  "phone":"18888888888",'address':'山东临沂','age':'21','date':'2018-02-02','production':'舒尔佳','price':'180RMB'},
                     { 'orderId': '0001',  "name":"周婷婷", "sex":'男', "phone":"18888888888",'address':'山东临沂','age':'21','date':'2018-02-02','production':'舒尔佳','price':'180RMB'},
                     { 'orderId': '0001',  "name":"周婷婷", "sex":'男',"phone":"18888888888",'address':'山东临沂','age':'21','date':'2018-02-02','production':'舒尔佳','price':'180RMB'},
                     { 'orderId': '0001',  "name":"周婷婷", "sex":'男',"phone":"18888888888",'address':'山东临沂','age':'21','date':'2018-02-02','production':'舒尔佳','price':'180RMB'},
-                ]},
-                proxy: {
-                    type: 'memory',
-                    reader: {
-                        type: 'json',
-                        root: 'items'
-                    }
-                }
+                ]
             }),
             columns: [
                 { header: '订单号',  dataIndex: 'orderId',flex: 1 },

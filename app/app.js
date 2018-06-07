@@ -3,7 +3,7 @@
  */
 Ext.application({
     name:'demo',
-    controllers:['mainControl'],
+    controllers:['mainControl','userControl'],
     appFolder:'../app',
     launch:function(){
         Ext.create('Ext.container.Viewport',{
@@ -15,6 +15,9 @@ Ext.application({
             }]
         });
 
+    },
+    initComponent:function () {
+        this.callParent();
     }
 
 });
